@@ -1,0 +1,9 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Clean portfolio website",
+  "main": "index.html",
+  "scripts": {
+    "start": "node -e \"const http=require('http'),fs=require('fs'),path=require('path');const server=http.createServer((req,res)=>{let filePath=req.url==='/'?'index.html':req.url.slice(1);if(!filePath.includes('.')){filePath='index.html';}const extname=path.extname(filePath);let contentType='text/html';if(extname==='.css')contentType='text/css';if(extname==='.js')contentType='text/javascript';fs.readFile(filePath,(err,data)=>{if(err){res.writeHead(404);res.end('File not found');}else{res.writeHead(200,{'Content-Type':contentType});res.end(data);}});});server.listen(3000,()=>console.log('Server running on http://localhost:3000'));\""
+  }
+}
