@@ -191,10 +191,21 @@ body {
 }
 
 .hero-image {
+    flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-}
+    padding-left: 40px
+  }
+  
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+    width: 350px;
+    border-radius: 12px;
+    object-fit: cover;
+
+  }
 
 .image-placeholder,
 .image-frame {
