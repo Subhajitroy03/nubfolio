@@ -18,7 +18,15 @@
 html {
     scroll-behavior: smooth;
 }
-
+html, body {
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
@@ -283,6 +291,7 @@ section {
 /* About Section */
 .about {
     background: var(--light-gray);
+    padding: 4rem 2rem;
 }
 
 .about-content {
@@ -302,6 +311,7 @@ section {
     display: flex;
     gap: 2rem;
     margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
 .stat {
@@ -322,12 +332,30 @@ section {
 
 .about-image {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end; /* Move image to the right */
+    align-items: center;
+    padding-right: 2rem; /* Extra spacing on right */
 }
 
-.image-frame {
-    border-radius: var(--border-radius);
+.about-image img {
+    width: 350px; /* Increased from 300px */
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
 }
+
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .about-image {
+        margin-top: 2rem;
+    }
+}
+
 
 /* Skills Section */
 .skills-grid {
