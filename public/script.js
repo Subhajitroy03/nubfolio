@@ -195,19 +195,38 @@ if (contactForm) {
             return;
         }
         
-        // Simulate form submission
         const submitButton = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
-        
-        submitButton.textContent = 'Sending...';
-        submitButton.disabled = true;
-        
-        setTimeout(() => {
-            alert('Thank you for your message! I\'ll get back to you soon.');
-            contactForm.reset();
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-        }, 2000);
+const originalText = submitButton.textContent;
+
+submitButton.textContent = 'Sending...';
+submitButton.disabled = true;
+
+fetch('/send', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ name, email, subject, message }),
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.text();
+})
+.then(data => {
+    alert('Thank you for your message! I\'ll get back to you soon.');
+    contactForm.reset();
+})
+.catch(error => {
+    alert('Something went wrong. Please try again later.');
+    console.error('Error:', error);
+})
+.finally(() => {
+    submitButton.textContent = originalText;
+    submitButton.disabled = false;
+});
+
     });
 }
 
@@ -337,5 +356,3 @@ document.addEventListener('keydown', (e) => {
         }
     }
 });
-
-console.log('Portfolio website loaded successfully!');
