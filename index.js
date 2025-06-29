@@ -1,27 +1,37 @@
-require('dotenv').config();
-const express = require("express");
-const bodyParser = require("body-parser");
-const nodemailer = require("nodemailer");
+import 'dotenv/config';
+import express from 'express';
+import bodyParser from 'body-parser';
+import nodemailer from 'nodemailer';
+import cors from 'cors';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 const app = express();
-const cors = require("cors");
-app.use(cors());
 const PORT = process.env.PORT || 3000;
+
+// Middlewares
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-// Serve static files (HTML, CSS, JS)
-app.use(express.static("public")); // if your HTML is in /public folder
-// POST route to send email
-app.post("/send", async (req, res) => {
-  console.log("Form received:", req.body); 
+
+// Serve static files (e.g. index.html, CSS, JS, etc.)
+app.use(express.static(__dirname + '/public'));
+
+// Contact form email route
+app.post('/send', async (req, res) => {
+  console.log("Form received:", req.body);
   const { name, email, subject, message } = req.body;
-  // Setup transporter
-const transporter = nodemailer.createTransport({
+
+  const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
       user: process.env.EMAIL_ADDRESS,
-      pass: process.env.PASSWORD, // Use Gmail App Password
+      pass: process.env.PASSWORD, // App-specific password
     },
-});
+  });
 
   try {
     const mailOptions = {
@@ -38,6 +48,11 @@ const transporter = nodemailer.createTransport({
     console.error("Error sending email:", error);
     res.status(500).send("Error sending email.");
   }
+});
+
+// SPA fallback route
+app.get('*', (req, res) => {
+  res.sendFile(join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(PORT, () => {

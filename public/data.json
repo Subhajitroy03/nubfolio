@@ -1,0 +1,58 @@
+{
+  "experiences": [
+    {
+      "position": "Machine Learning Research Assistant",
+      "company": "University AI Lab",
+      "duration": "Sep 2024 - Present",
+      "description": "Working on computer vision projects focusing on image classification and object detection using PyTorch and TensorFlow.",
+      "achievements": [
+        "Developed CNN models achieving 94% accuracy on custom datasets",
+        "Implemented data augmentation techniques improving model robustness",
+        "Collaborated with PhD students on research paper submissions"
+      ],
+      "technologies": ["Python", "PyTorch", "OpenCV", "Jupyter"]
+    },
+    {
+      "position": "Data Science Intern",
+      "company": "TechStart Solutions",
+      "duration": "Jun 2024 - Aug 2024",
+      "description": "Analyzed customer behavior data and built predictive models for business intelligence dashboard.",
+      "achievements": [
+        "Processed 100K+ customer records using pandas and NumPy",
+        "Created interactive visualizations with Plotly and Matplotlib",
+        "Built recommendation system increasing user engagement by 23%"
+      ],
+      "technologies": ["Python", "Pandas", "Scikit-learn", "SQL"]
+    },
+    {
+      "position": "AI Club President",
+      "company": "College AI/ML Society",
+      "duration": "Jan 2024 - Present",
+      "description": "Leading a team of 50+ students in organizing workshops, hackathons, and research projects in AI/ML domain.",
+      "achievements": [
+        "Organized 5 technical workshops with 200+ participants",
+        "Mentored 15 junior students in their first ML projects",
+        "Secured partnerships with 3 tech companies for guest lectures"
+      ],
+      "technologies": ["Leadership", "Mentoring", "Event Management", "Public Speaking"]
+    },
+    {
+      "position": "ML Project Contributor",
+      "company": "Open Source Community",
+      "duration": "Mar 2024 - May 2024",
+      "description": "Contributed to open-source machine learning libraries and participated in collaborative development projects.",
+      "achievements": [
+        "Fixed 8 bugs in scikit-learn documentation",
+        "Implemented feature extraction algorithms",
+        "Participated in Google Summer of Code preparation"
+      ],
+      "technologies": ["Git", "GitHub", "Open Source", "Code Review"]
+    }
+  ],
+  "skills": {
+    "Programming": ["Python", "R", "SQL", "JavaScript"],
+    "ML/AI Frameworks": ["TensorFlow", "PyTorch", "Scikit-learn", "Keras"],
+    "Data Tools": ["Pandas", "NumPy", "Matplotlib", "Jupyter"],
+    "Specializations": ["Computer Vision", "NLP", "Deep Learning", "Data Analysis"]
+  }
+}
